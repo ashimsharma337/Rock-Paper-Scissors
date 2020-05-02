@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper Scissors</title>
+</head>
+<body>
+    <div id ="game">
+        <p>Press r, p, or s to start playing.</p>
+
+    </div>
+    
+    <!-- Peudocodes
+    1.I need the user to make a choice
+    2.computer to make a choice
+    3.Capture those choices, 
+    4.Compare these choices, and determine a win, loss or  tie
+    5.Display the result to the user
+    -->
+
+    <script>
+
+        var options = ["r", "p", "s"];
+        var wins = 0;
+        var losses = 0;
+        var ties = 0; 
+        
+        
+
+        document.onkeyup = function(){
+            var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
+            
+            var computerGuess = options[Math.floor(Math.random()*options.length)];
+
+            
+            if(userGuess == "r" || userGuess == "p" || userGuess == "s"){
+                
+            
+                        if((userGuess=="r")&&(computerGuess=="s")){
+                            losses++;
+                            
+
+                        }
+                        if((userGuess=="r")&&(computerGuess=="p")){
+                            losses++;
+                            
+                        }
+                        if((userGuess=="p")&&(computerGuess=="r")){
+                            wins++;
+                        }
+                        if((userGuess=="p")&&(computerGuess=="s")){
+                            losses++;
+                           
+                        }
+                        if((userGuess=="s")&&(computerGuess=="r")){
+                            losses++
+                           
+                        }
+                        if((userGuess=="s")&&(computerGuess=="p")){
+                            wins++;
+                            
+                        }    if((userGuess==computerGuess)){
+                            ties++;
+                            
+                        }
+                   }
+            else{
+                alert("Please choose r, p, or s");
+            }
+
+            var html = "<p>Press r, p, or s to start playing</p>" +
+            "<p>wins: " + wins +"</p>" +
+            "<p>losses: " + losses +"</p>" +
+            "<p>ties: " + ties +"</p>";
+
+            document.querySelector("#game").innerHTML = html;
+
+        };
+
+       
+
+
+    </script>
+
+
+
+
+
+    
+</body>
+</html>
